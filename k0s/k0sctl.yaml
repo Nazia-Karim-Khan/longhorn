@@ -61,3 +61,4 @@ spec:
         user: bsfintech
         port: 22
         keyPath: ~/bsfintechtest
+      role: worker
