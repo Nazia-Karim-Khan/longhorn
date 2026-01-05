@@ -105,7 +105,10 @@ kubectl port-forward -n minio-tenant svc/minio-tenant-logs-console 9090:9090
 Install longhorn:
 helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace -f longhorn/longhorn-helm-values.yaml --version 1.10.1
 
+kubectl -n longhorn-system patch -p '{"value": "true"}' --type=merge lhs deleting-confirmation-flag
+setting.longhorn.io/deleting-confirmation-flag patched
 
+helm uninstall longhorn -n longhorn-system
 
 
 Ref: https://github.com/grafana/helm-charts/tree/main/charts, https://grafana.com/docs/helm-charts/mimir-distributed/latest/get-started-helm-charts/ [for mimir]
